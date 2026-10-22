@@ -1,0 +1,34 @@
+# Tests and test output
+tests/
+__tests__/
+*.test.*
+*.spec.*
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+
+# Planning and build-stage documentation
+/core-concept.md
+/core-concepts.md
+/core-concepts/
+/build-stages/
+
+# Validation reports, screenshots, and browser checks
+/validation.md
+/validation-*.png
+/scripts/check-browser.mjs
+
+# Dependencies and generated build output
+node_modules/
+dist/
+build/
+.cache/
+*.log
+
+# Local configuration and operating-system files
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db

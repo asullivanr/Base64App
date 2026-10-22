@@ -1,0 +1,7 @@
+*
+!public/
+!public/**
+!nginx.conf
+!Dockerfile
+!scripts/
+!scripts/container-start.sh

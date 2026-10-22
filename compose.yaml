@@ -1,0 +1,21 @@
+services:
+  base64:
+    build: .
+    image: base64-app:local
+    restart: unless-stopped
+    environment:
+      SITE_GITHUB_URL: ${SITE_GITHUB_URL:-}
+      SITE_GITHUB_REF: ${SITE_GITHUB_REF:-HEAD}
+      SITE_SUBDIR: ${SITE_SUBDIR:-.}
+    ports:
+      - "${HOST_BIND:-127.0.0.1}:${HOST_PORT:-0}:80"
+    # Allow the unprivileged nginx process to bind port 80 in this container.
+    sysctls:
+      net.ipv4.ip_unprivileged_port_start: "0"
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true

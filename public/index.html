@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Encode and decode UTF-8 text with Base64, entirely in your browser.">
+  <title>Base64</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <main>
+    <header><p class="eyebrow">A SIMPLE TEXT TOOL</p><h1>Base64<span aria-hidden="true">.</span></h1>
+      <p class="intro">Text in. Converted text out.</p>
+      <p class="privacy">Conversion happens in your browser.</p>
+    </header>
+    <form id="converter" autocomplete="off">
+      <div class="selectors">
+        <div><label for="mode">Operation</label><select id="mode"><option value="encode">Encode</option><option value="decode">Decode</option></select></div>
+        <div><label for="variant">Base64 variant</label><select id="variant"><option value="standard">Standard</option><option value="url-safe">URL-safe</option></select></div>
+      </div>
+      <div class="field-heading"><label id="input-label" for="input">Text to encode</label><span id="limit">1 MiB UTF-8 limit</span></div>
+      <textarea id="input" rows="7" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" aria-describedby="limit error" placeholder="Enter your text here…"></textarea>
+      <div id="error" role="alert"></div>
+      <button class="primary" type="submit">Convert <span aria-hidden="true">↓</span></button>
+      <label id="output-label" for="output">Base64 output</label>
+      <textarea id="output" rows="7" readonly spellcheck="false" autocomplete="off" placeholder="Your result appears here"></textarea>
+      <div class="actions"><button id="copy" type="button" disabled>Copy output</button><button id="clear" type="button">Clear</button></div>
+      <p id="status" role="status" aria-live="polite" aria-atomic="true"></p>
+    </form>
+    <footer>No accounts. No saved history. <span>Base64 is encoding, not encryption.</span></footer>
+  </main>
+</body>
+</html>
