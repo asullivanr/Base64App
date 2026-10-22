@@ -40,10 +40,10 @@ Copy output requires HTTPS or a trusted local address such as `localhost` or `12
 
 ## Deploy with Docker
 
-Install Docker with Docker Compose support and enable Linux containers. Run the following commands from the project directory:
+Compose uses `nginx:1.30.6-alpine-slim` directly with read-only mounts for the configuration, startup script, and bundled site; no image build is required. Install Docker with Docker Compose support and enable Linux containers. Run the following commands from the project directory:
 
 ```sh
-docker compose build --pull
+docker compose pull
 docker compose up -d
 docker compose ps
 docker compose port base64 80
@@ -100,10 +100,10 @@ A failed download or invalid site folder stops startup. Downloaded archives and 
 
 ### Update and stop
 
-After obtaining updated source, rebuild and start the application:
+After obtaining updated source, pull the image and recreate the container:
 
 ```sh
-docker compose build --pull
+docker compose pull
 docker compose up -d
 docker compose ps
 ```
@@ -145,6 +145,6 @@ docker compose down
 | `nginx.conf` | Static hosting and HTTP response headers |
 | `package.json` | Node.js requirements and npm commands |
 
-To change the interface or conversion logic, edit the files in `public/`, run `npm start`, and refresh your browser. Rebuild the container to include source changes in a Docker deployment.
+To change the interface or conversion logic, edit the files in `public/`, run `npm start`, and refresh your browser. Compose mounts the local configuration, startup script, and bundled site read-only. Recreate the container after changing these files.
 
 Test suites, browser-check scripts, validation reports, and planning documents are excluded by `.gitignore` and are not included in this repository. The `npm test` command invokes Node's test runner, but this checkout does not include the project's excluded test files. You can manually check a change by encoding and decoding `Hello` and Unicode text, trying both variants, and checking Copy output and Clear.
