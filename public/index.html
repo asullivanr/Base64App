@@ -6,12 +6,13 @@
   <meta name="description" content="Encode and decode UTF-8 text with Base64, entirely in your browser.">
   <title>Base64</title>
   <link rel="icon" href="data:,">
+  <script src="./theme.js"></script>
   <link rel="stylesheet" href="./style.css">
   <script type="module" src="./app.js"></script>
 </head>
 <body>
   <main>
-    <header><p class="eyebrow">A SIMPLE TEXT TOOL</p><h1>Base64<span aria-hidden="true">.</span></h1>
+    <header><div class="header-toolbar"><p class="eyebrow">A SIMPLE TEXT TOOL</p><div class="theme-control"><label for="theme">Theme</label><select id="theme"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div><h1>Base64<span aria-hidden="true">.</span></h1>
       <p class="intro">Text in. Converted text out.</p>
       <p class="privacy">Conversion happens in your browser.</p>
     </header>
